@@ -1,0 +1,34 @@
+#Rank System 1.0 By AngerYT
+#Specially made for songoda users! <3
+
+#Compatible with POWERRANKS!
+#Please consider getting the premium version that one doesnt require any plugins only skript! (This means it has buils-in rank system)
+
+command /rank [<text>] [<text>] [<offline player>]:
+	permission: skript.op
+	usage: &c&lRank System &7>> &cWrong Usage: &r/rank [set, remove] [rank] [player]
+	trigger:
+		if arg 1 is "set":
+			if arg 2 is not set:
+			send "Please specify a rank!" to player
+			stop
+		if arg 2 is set:
+			if arg 3 is set:
+				execute console command "pr setrank %arg-3% %arg-2%"
+				send "&4&lYou just received a %arg-2% Rank! Good luck!" to arg 3
+				send "&4&lYou just received a %arg-2% Rank! Good luck!" to player
+				stop
+			if arg 3 is not set:
+				send "&cPlease Specify a user!" to player
+			stop
+			if arg 1 is "clear":
+			if arg 2 is not set:
+			send "Please specify a rank you want to remove!" to player
+			stop
+			if arg 1 is "clear":
+			if arg 2 is set:
+			if arg 3 is set:
+			execute console command "pr removerank %arg-3% %arg-2%"
+			stop
+		if arg 1 is not set:
+		       send "&c&lRank System &7>> &cWrong Usage: &r/rank [set, remove] [rank] [player]" to player
